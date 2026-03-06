@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import axios from 'axios'
+import axios from '../api'
 
 // Auto calculate end date: start + 365 days
 function addDays(dateStr, days) {

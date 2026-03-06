@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import axios from 'axios'
+import axios from '../api'
 
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December']
 const VEHICLE_COLORS = {
