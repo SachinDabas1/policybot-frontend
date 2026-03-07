@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import axios from '../api'
+import axios from 'axios'
 
 // Auto calculate end date: start + 365 days
 function addDays(dateStr, days) {
@@ -7,6 +7,7 @@ function addDays(dateStr, days) {
   d.setDate(d.getDate() + days)
   return d.toISOString().split('T')[0]
 }
+
 
 // Get current month date range for input min/max
 function getCurrentMonthRange() {
@@ -137,7 +138,7 @@ export default function ChatBot() {
 
     // Auto-calculate end date when start date is entered
     if (q.key === 'policyStartDate') {
-      const autoEnd = addDays(finalValue, 365)
+      const autoEnd = addDays(finalValue, 364)
       newAnswers.policyEndDate = autoEnd
     }
 
@@ -151,7 +152,7 @@ export default function ChatBot() {
       displayValue = `${opt.icon} ${opt.label} — ${opt.desc}`
     }
     if (q.key === 'policyStartDate') {
-      const autoEnd = addDays(finalValue, 365)
+      const autoEnd = addDays(finalValue, 364)
       const fmtDate = d => new Date(d).toLocaleDateString('en-IN')
       displayValue = `${fmtDate(finalValue)}`
       // Add bot confirmation of auto end date
